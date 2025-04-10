@@ -29,8 +29,8 @@ const BlogpostCard = ({ blogPost }: BlogpostCardProps) => {
               className="object-cover transition-transform duration-300 group-hover:scale-105"
             />
           </div>
-          <div className="p-4">
-            <h3 className="mb-2 text-lg font-semibold text-gray-900">
+          <div className="p-4 flex flex-col">
+            <h3 className="mb-2 text-lg font-semibold text-gray-900 line-clamp-1">
               {blogPost.title}
             </h3>
             <p className="mb-4 text-sm text-gray-500 font-medium opacity-65 line-clamp-2">

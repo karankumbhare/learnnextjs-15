@@ -14,6 +14,9 @@ export const handleSumbitForm = async (formData: FormData) => {
   const blogTitle = formData.get("title")?.toString().trim();
   const blogContent = formData.get("content")?.toString().trim();
   const blogImage = formData.get("image_URL")?.toString().trim();
+  const authorFullName = ((user.given_name as string) +
+    " " +
+    user.family_name) as string;
 
   if (!blogTitle || !blogContent || !blogImage) {
     throw new Error("All fields are required.");
@@ -25,7 +28,7 @@ export const handleSumbitForm = async (formData: FormData) => {
       content: blogContent as string,
       imageURL: blogImage as string,
       authorId: user.id as string,
-      authorName: user.given_name as string,
+      authorName: authorFullName,
       authorAvatar: user.picture as string,
     },
   });

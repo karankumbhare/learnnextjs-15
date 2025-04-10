@@ -6,9 +6,13 @@ const SubmitButton = () => {
   const { pending } = useFormStatus();
 
   return (
-    <Button className="w-fit " type="submit" disabled={pending}>
+    <button
+      className="w-full cursor-pointer rounded bg-black text-white py-2 hover:bg-black/90"
+      type="submit"
+      disabled={pending}
+    >
       {pending ? "Submitting" : "Submit Post"}
-    </Button>
+    </button>
   );
 };
 

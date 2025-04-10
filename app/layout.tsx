@@ -23,11 +23,11 @@ export default function RootLayout({
   return (
     <AuthProvider>
       <html lang="en">
-        <body
-          className={`${poppins.variable} antialiased max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto`}
-        >
+        <body className={`${poppins.variable} antialiased`}>
           <Navbar />
-          {children}
+          <div className="max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto pt-20">
+            {children}
+          </div>
         </body>
       </html>
     </AuthProvider>
