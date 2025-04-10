@@ -1,0 +1,83 @@
+import { Suspense } from "react";
+import { prisma } from "./utils/db";
+import BlogpostCard from "@/components/general/BlogpostCard";
+import { Skeleton } from "@/components/ui/skeleton";
+
+const getBlogPostData = async () => {
+  const blogPostsData = await prisma.blogPost.findMany({
+    select: {
+      id: true,
+      title: true,
+      content: true,
+      imageURL: true,
+      authorId: true,
+      authorName: true,
+      authorAvatar: true,
+      createdAt: true,
+      updatedAt: true,
+    },
+  });
+
+  return blogPostsData;
+};
+
+export default function Home() {
+  return (
+    <>
+      <div className="py-6">
+        <h1 className="text-3xl font-bold tracking-tight mb-8">Latest Post</h1>
+        <Suspense fallback={<BlogPostGrid />}>
+          <BlogPosts />
+        </Suspense>
+      </div>
+    </>
+  );
+}
+
+async function BlogPosts() {
+  const data = await getBlogPostData();
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {data.length > 0 &&
+        data.map((item) => <BlogpostCard blogPost={item} key={item.id} />)}
+    </div>
+  );
+}
+
+// Blog post grid with loading state
+function BlogPostGrid() {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {Array.from({ length: 6 }).map((_, index) => (
+        <div
+          className="rounded-lg border bg-card text-card-foreground shadow-sm h-[400px] flex flex-col overflow-hidden"
+          key={index}
+        >
+          {/* Image Skel;eton */}
+          <Skeleton className="h-48 w-full rounded-none" />
+
+          <div className="p-4 flex-1 flex flex-col gap-3">
+            {/* Title Skeleton */}
+            <Skeleton className="h-6 w-3/4" />
+
+            {/* Content Skeleton */}
+            <div className="space-y-2">
+              <Skeleton className="h-4 w-full" />
+              <Skeleton className="h-4 w-full" />
+            </div>
+
+            {/* Footer skeleton */}
+            <div className="mt-auto flex items-center justify-between pt-4">
+              <div className="flex items-center">
+                <Skeleton className="w-8 h-8 rounded-full mr-2" />
+                <Skeleton className="h-4 w-24" />
+              </div>
+              <Skeleton className="h-4 w-16" />
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
