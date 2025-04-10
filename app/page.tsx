@@ -54,7 +54,7 @@ function BlogPostGrid() {
           className="rounded-lg border bg-card text-card-foreground shadow-sm h-[400px] flex flex-col overflow-hidden"
           key={index}
         >
-          {/* Image Skel;eton */}
+          {/* Image Skeleton */}
           <Skeleton className="h-48 w-full rounded-none" />
 
           <div className="p-4 flex-1 flex flex-col gap-3">

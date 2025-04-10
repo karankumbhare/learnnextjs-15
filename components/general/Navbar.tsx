@@ -16,8 +16,6 @@ const Navbar = async () => {
   const { getUser } = getKindeServerSession();
 
   const user = await getUser();
-
-  //   console.log(user);
   return (
     <>
       <nav className="py-5 flex items-center justify-between">

@@ -1,7 +1,6 @@
 import { prisma } from "@/app/utils/db";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Skeleton } from "@/components/ui/skeleton";
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,8 +13,6 @@ async function getData(id: string) {
     },
   });
 
-  console.log(data);
-
   if (!data) return notFound();
 
   return data;
@@ -26,10 +23,6 @@ type Params = Promise<{ id: string }>;
 export default async function BlogIdPage({ params }: { params: Params }) {
   const { id } = await params;
   const data = await getData(id);
-
-  console.log(id);
-
-  console.log(data);
   return (
     <>
       <div className="max-w-3xl mx-auto py-8 px-4">

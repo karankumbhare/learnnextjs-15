@@ -23,14 +23,10 @@ export const handleSumbitForm = async (formData: FormData) => {
     data: {
       title: blogTitle as string,
       content: blogContent as string,
-      imageURL:
-        (blogImage as string) ||
-        "https://isbndb.com/blog/wp-content/uploads/2024/04/book-cover-image.jpg",
+      imageURL: blogImage as string,
       authorId: user.id as string,
       authorName: user.given_name as string,
-      authorAvatar:
-        (user.picture as string) ||
-        "https://imgs.search.brave.com/7_-25qcHnU9PLXYYiiK-IwkQx93yFpp__txSD1are3s/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAwLzY0LzY3LzYz/LzM2MF9GXzY0Njc2/MzgzX0xkYm1oaU5N/NllwemIzRk00UFB1/RlA5ckhlN3JpOEp1/LmpwZw",
+      authorAvatar: user.picture as string,
     },
   });
 

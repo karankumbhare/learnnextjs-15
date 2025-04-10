@@ -16,7 +16,6 @@ interface BlogpostCardProps {
 }
 
 const BlogpostCard = ({ blogPost }: BlogpostCardProps) => {
-  console.log(blogPost);
   return (
     <>
       <div className="group relative overflow-hidden rounded-lg border border-gray-200 bg-white shadow-md transition-all hover:shadow-lg">
