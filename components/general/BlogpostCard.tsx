@@ -2,15 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface BlogpostCardProps {
-  id: string;
-  title: string;
-  content: string;
-  imageURL: string;
-  authorId: string;
-  authorName: string;
-  authorAvatar: string;
-  createdAt: Date;
-  updatedAt: Date;
+  blogPost: {
+    id: string;
+    title: string;
+    content: string;
+    imageURL: string;
+    authorId: string;
+    authorName: string;
+    authorAvatar: string;
+    createdAt: Date;
+    updatedAt: Date;
+  };
 }
 
 const BlogpostCard = ({ blogPost }: BlogpostCardProps) => {

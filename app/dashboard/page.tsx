@@ -22,7 +22,7 @@ export default async function DashboradRoute() {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
-  const blogPostData = await getDashboardData(user.id);
+  const blogPostData = await getDashboardData(user?.id);
 
   return (
     <>
