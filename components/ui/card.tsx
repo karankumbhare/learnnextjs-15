@@ -1,6 +1,6 @@
 import * as React from "react";
 
-function Card({ className, ...props }: React.ComponentProps<"div">) {
+function Card({ ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card"
@@ -12,7 +12,7 @@ function Card({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
-function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
+function CardHeader({ ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-header"
@@ -24,7 +24,7 @@ function CardHeader({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
-function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
+function CardTitle({ ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-title"
@@ -34,7 +34,7 @@ function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
-function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
+function CardDescription({ ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-description"
@@ -44,7 +44,7 @@ function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
-function CardAction({ className, ...props }: React.ComponentProps<"div">) {
+function CardAction({ ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-action"
@@ -56,11 +56,11 @@ function CardAction({ className, ...props }: React.ComponentProps<"div">) {
   );
 }
 
-function CardContent({ className, ...props }: React.ComponentProps<"div">) {
+function CardContent({ ...props }: React.ComponentProps<"div">) {
   return <div data-slot="card-content" className={"px-6"} {...props} />;
 }
 
-function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
+function CardFooter({ ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-footer"
