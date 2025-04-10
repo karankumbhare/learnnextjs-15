@@ -43,7 +43,10 @@ export default async function BlogIdPage({ params }: { params: Params }) {
             <div className="flex items-center space-x-2">
               <div className="relative size-10 overflow-hidden rounded-full">
                 <Image
-                  src={data.authorAvatar}
+                  src={
+                    data.authorAvatar ||
+                    "https://t4.ftcdn.net/jpg/02/15/84/43/240_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg"
+                  }
                   alt={data.authorName}
                   fill
                   className="object-cover"
