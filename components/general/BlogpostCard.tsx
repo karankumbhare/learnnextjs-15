@@ -16,6 +16,7 @@ interface BlogpostCardProps {
 }
 
 const BlogpostCard = ({ blogPost }: BlogpostCardProps) => {
+  console.log(blogPost);
   return (
     <>
       <div className="group relative overflow-hidden rounded-lg border border-gray-200 bg-white shadow-md transition-all hover:shadow-lg">
@@ -40,8 +41,11 @@ const BlogpostCard = ({ blogPost }: BlogpostCardProps) => {
               <div className="flex items-center space-x-2">
                 <div className="relative size-8 overflow-hidden rounded-full">
                   <Image
-                    src={blogPost.authorAvatar}
-                    alt={blogPost.authorName}
+                    src={
+                      blogPost.authorAvatar ||
+                      "https://t4.ftcdn.net/jpg/02/15/84/43/240_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg"
+                    }
+                    alt={blogPost.authorName as string}
                     fill
                     className="object-cover"
                   />
